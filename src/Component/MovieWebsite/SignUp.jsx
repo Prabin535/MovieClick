@@ -4,8 +4,6 @@ import {createUserWithEmailAndPassword,sendEmailVerification, updateProfile} fro
 import {toast} from "react-toastify"
 import { auth } from '../Api/Firebase/FirebaseApi'
 import {useNavigate} from "react-router-dom"
-
-
 const SignUp = () => {
   let navigate=useNavigate();
   let [name,setName]=useState();
