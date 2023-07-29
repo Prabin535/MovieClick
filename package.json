@@ -18,11 +18,13 @@
     "react-icons": "^4.6.0",
     "react-loading-skeleton": "^3.1.0",
     "react-portal": "^4.2.2",
+    "react-redux": "^8.1.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.6",
     "react-toastify": "^9.1.1",
+    "redux": "^4.2.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

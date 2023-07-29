@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+// import { useContext } from "react";
+
 // import { useContext } from "react";
 // import { userContext } from "../Api/Firebase/AuthContext";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import { auth } from "../Api/Firebase/FirebaseApi";
+import { searchItem } from "../../Redux/Action";
 
 export default function Navbar() {
+  const [datachange, setDatachange] = useState()
+  let dispatch = useDispatch()
   // let user = useContext(userContext);
   async function logout() {
     await signOut(auth);
@@ -16,6 +22,15 @@ export default function Navbar() {
     toast.warning("Logout Successfully");
     window.location.replace("http://localhost:3000/");
   }
+  function searchData() {
+    dispatch(searchItem(datachange))
+  }
+  useEffect(() => {
+    searchData()
+  }, [datachange])
+  const change = (e) => {
+    setDatachange(e.target.value)
+  }
   return (
     <>
       {/* {console.log(sessionStorage.user)} */}
@@ -23,9 +38,27 @@ export default function Navbar() {
       {sessionStorage.user ? (
         <div id="header">
           <div className="headerPart1">
-            <Header />
+            <div className="nav-logo">
+              <Header />
+            </div>
+
+
+            <div className="nav-searchBar">
+              <input
+                type="text"
+                placeholder="Search for movie,web series or a person..."
+                name=""
+                id=""
+                className="nav-searchInputTag"
+                onChange={change}
+              />
+              <button className="nav-searchBtn">Search</button>
+            </div>
+          
           </div>
+
           <div className="headerPart2">
+
             <div className="menubar1">
               <span>
                 <Link to="/Movies" className="menuContent">
@@ -39,11 +72,7 @@ export default function Navbar() {
               </span>
             </div>
             <div className="menubar2">
-              <span>
-                <Link to="/Admin" className="menuContentBtn">
-                  Admin
-                </Link>
-              </span>
+           
               <span>
                 <Link className="menuContentBtn">
                   {sessionStorage.userName}
@@ -64,11 +93,7 @@ export default function Navbar() {
           </div>
           <div className="headerPart2">
             <div className="menubar2">
-              <span>
-                <Link to="/Admin" className="menuContentBtn">
-                  Admin
-                </Link>
-              </span>
+         
               <span>
                 <Link to="/SignUp" className="menuContentBtn">
                   SignUp
