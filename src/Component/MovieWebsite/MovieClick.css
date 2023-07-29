@@ -10,36 +10,49 @@
     display: none;
 }
 
-    
-
-
-
 #header{
-    height: 100px;
+    min-height: 100px;
     background-color: black;
-    /* box-shadow:  0px 5px 15px rgb(91, 96, 97); */
+    box-shadow: 0px 1px 3px #fffc005e;
     position: sticky;
     top: 0px;
     z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-inline: 5vw;
 }
 .headerPart1{
-    flex: 40%;
+    flex: 60%;
+    /* background-color: aqua; */
+    gap: 1vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 .headerPart2{
-    flex: 60%;
+    flex: 40%;
     display: flex;
+    gap: 50px;
     justify-content: right;
+    /* background-color: red; */
+}
+.nav-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex: 2%; */
+    width: max-content;
+    /* background-color: red; */
 }
 #heading{
-    width: 100%;
+    /* width: 90%; */
     color: aliceblue;
-    padding: 5px;
-    font-size: 350%;
+    /* background-color: red; */
+    /* padding-block: 5px; */
+    padding-inline: 7px;
+    white-space: nowrap;
+    font-size: 50px;
     font-family: 'Secular One', sans-serif;
     text-align: center;
     border: 3px solid yellow;
@@ -51,15 +64,18 @@
     border-radius: 20px 0px;
 }
 .menubar1{
-    width: 200px;
+    /* width: 200px; */
     display: flex;
-    justify-content: space-evenly;
+    gap: 50px;
+    justify-content: center;
     align-items: center;
+    /* background-color: yellowgreen; */
 }
 .menubar2{
-    width: 300px;
+    width: max-content;
     display: flex;
-    justify-content: space-evenly;
+    gap: 15px;
+    justify-content: center;
     align-items: center;
 }
 .menuContent{
@@ -67,7 +83,7 @@
     transition: transform 0.5s 0s ease-in-out ;
 }
 .menuContent::after{
-    border-bottom: 2px solid yellow;
+    border-bottom: 2px solid red;
 }
 .menuContentBtn{
     width: 80px;
@@ -91,7 +107,14 @@ span{
     cursor: pointer;
     transform: translate(0% , 40%) scale(1.2);
 }
-
+.IconContent{
+    text-decoration: none;
+    cursor: pointer;
+}
+.IconContent:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
 .menuContentBtn:hover{
     text-decoration: none;
     color: blue;
@@ -297,8 +320,9 @@ form{
     text-decoration: none;
 }
 .searchSection{
-    width: 100%;
-    height: 620px;
+    width: 100vw;
+    /* height: 620px; */
+    height: 86.3vh;
     margin: 0px auto;
     background: url(../../../public/Background.jpg);
     /* background: linear-gradient(to right, rgb(40, 41, 40) 0%, rgb(62, 62, 62) 100%); */
@@ -316,6 +340,9 @@ form{
 }
 .titleBar{
     background-color: transparent;
+    
+    /* background-color: yellowgreen; */
+
     /* text-align: center; */
 }
 .title1{
@@ -328,8 +355,30 @@ form{
     color: yellow;
     font-size: 30px;
 }
-.searchBar{
+.searchBar,.nav-searchBar{
     background-color: transparent;
+}
+.nav-searchBar{
+    display: flex;
+    align-items: center;
+    /* flex: 5%; */
+    width: 60%;
+    justify-content: center;
+    position: relative;
+    /* background-color: greenyellow; */
+}
+.nav-searchInputTag{
+    width: 100%;
+    height: 40px;
+    padding: 20px;
+    /* margin-bottom: 20px; */
+    border: none;
+    outline: none;
+    border-radius: 0px 20px;
+    box-shadow: inset 0px 0px 15px rgb(35, 34, 34);
+    background-color: aliceblue;
+    /* position: relative; */
+
 }
 .searchInputTag{
     width: 100%;
@@ -342,6 +391,19 @@ form{
     box-shadow: inset 0px 0px 15px rgb(35, 34, 34);
     background-color: aliceblue;
     position: relative;
+}
+.nav-searchBtn{
+    width: 80px;
+    height: 40px;
+    /* margin-bottom: 20px; */
+    border: none;
+    background-color: yellow;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 0px;
+    box-shadow: inset 0px 0px 10px rgb(35, 34, 34);
+    position: absolute;
+    right: 0;
+    /* margin-left: 353px; */
 }
 .searchBtn{
     width: 80px;
@@ -356,6 +418,9 @@ form{
     right: 10%;
 }
 .searchBtn:hover{
+    color: blue;
+}
+.nav-searchBtn:hover{
     color: blue;
 }
 

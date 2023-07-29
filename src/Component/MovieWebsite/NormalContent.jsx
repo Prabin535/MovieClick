@@ -3,6 +3,7 @@ import React from 'react';
 export default function NormalContent() {
   return (
     <>
+     {sessionStorage.user ? " ":
         <div className="searchSection">
                 <div className="searchContent">
                 <div className="titleBar">
@@ -11,7 +12,7 @@ export default function NormalContent() {
                     Millions of movies and web series to discover. Explore now.
                   </h4>
                 </div>
-                <div className="searchBar">
+                {/* <div className="searchBar">
                   <input
                     type="text"
                     placeholder="Search for movie,web series or a person..."
@@ -19,11 +20,11 @@ export default function NormalContent() {
                     id=""
                     className="searchInputTag"
                   />
-                  <button className="searchBtn">Search21111</button>
-                </div>
+                  <button className="searchBtn">Search</button>
+                </div> */}
                 </div>
               </div>
-
+}
               {/* <div className="content">
                 <div className="cards">
                   <Link to="/NowPlaying" id="contents">

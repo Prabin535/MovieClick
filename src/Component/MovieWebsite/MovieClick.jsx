@@ -11,7 +11,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AuthContext from "../Api/Firebase/AuthContext";
 import BestofSuperheroes from "./BestofSuperheroes";
-import Admin from "./Admin";
+
 import CreateProduct from "./Product/CreateProduct";
 import NowPlaying from "./NowPlaying";
 import UpcommingMovies from "./UpcommingMovies";
@@ -37,7 +37,7 @@ function MovieClick() {
 
           <Route path="/WebSeries" element={<WebSeries />}></Route>
 
-          <Route path="/Admin" element={<Admin />}></Route>
+          
           <Route path="/UploadProduct" element={<CreateProduct />}></Route>
 
           <Route path="/SignUp" element={<SignUp />}></Route>
