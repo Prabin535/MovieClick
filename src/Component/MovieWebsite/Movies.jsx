@@ -1,10 +1,14 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Card from "./MovieCard";
+import { useSelector } from 'react-redux';
 import LogIn from "./LogIn";
 
 const Movies = () => {
   let [movies, setMovies] = useState([]);
   let [page,setPage]=useState(1);
+  let [searchData, setSearchData] = useState([]);
+
+  let filteredData2 = useSelector(state => state.combineReducersdata.searcheddata) 
   function nextPage(){
     setPage(page+1);
   }  
@@ -17,10 +21,31 @@ const Movies = () => {
       .then((data) => setMovies([...movies,...data.results]));
   }, [page,movies]);
 
-  // console.log(movies);
+  useEffect(()=>{
+    setSearchData(filteredData2)
+  },[filteredData2])
+
 
   return (
     <>
+    {searchData?.length ?
+
+<div className="movieList">
+  <h3 style={{ padding: "1%" }}>
+    Your Searched Movies
+  </h3>
+  <div className="movies">
+    {searchData?.map((item, index) => {
+      return (
+        <Fragment key={index}>
+          <Card item={item} />
+        </Fragment>
+      );
+    })}
+  </div>
+</div >
+:
+<>
       {sessionStorage.user ? (
         <div className="movieList">
         <h3>Popular Movies</h3>
@@ -43,7 +68,8 @@ const Movies = () => {
       (
         <LogIn/>
       )}
-      
+      </>
+}
     </>
   );
 };
