@@ -1,11 +1,11 @@
 
-let searchItem=(data)=>{
+let disapatchdata=(data)=>{
     return{
-        type:"SEARCHDATA",
-        payload:data
+        type:"SEARCHEDDATA",
+        payload:data,
     }
 }
 
 
-export{searchItem}
+export{disapatchdata}
 

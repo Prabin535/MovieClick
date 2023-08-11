@@ -1,13 +1,19 @@
 import React, { Fragment, useEffect, useState } from "react";
 import WebSeriesCard from "./WebSeriesCard";
+import { useSelector } from 'react-redux';
 import LogIn from "./LogIn";
+import Card from "./MovieCard";
 
 const WebSeries = () => {
+  
   let [webSeries, setWebSeries] = useState([]);
+  let [searchData, setSearchData] = useState([]);
   let [page,setPage]=useState(1);
   function nextPage(){
     setPage(page+1);
-  }  
+  } 
+
+  let filteredData2 = useSelector(state => state.combineReducersdata.searcheddata) 
   
   useEffect(() => {
     fetch(
@@ -19,10 +25,32 @@ const WebSeries = () => {
       });
   }, [page]);
 
-  console.log(webSeries);
+  useEffect(()=>{
+    setSearchData(filteredData2)
+  },[filteredData2])
 
   return (
     <>
+
+    {
+        searchData?.length ?
+
+          <div className="movieList">
+            <h3 style={{ padding: "1%" }}>
+              Your Searched Movies
+            </h3>
+            <div className="movies">
+              {searchData?.map((item, index) => {
+                return (
+                  <Fragment key={index}>
+                    <Card item={item} />
+                  </Fragment>
+                );
+              })}
+            </div>
+          </div >
+          :
+          <>
       {sessionStorage.user ? (
         <div className="movieList">
         <h3>Popular Shows</h3>
@@ -45,7 +73,7 @@ const WebSeries = () => {
       (
         <LogIn/>
       )}
-      
+      </>}
     </>
   );
 }

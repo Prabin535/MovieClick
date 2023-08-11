@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-// import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { disapatchdata } from "../../Redux/Action";
+import { RxCross2 } from 'react-icons/rx';
 
 // import { useContext } from "react";
 // import { userContext } from "../Api/Firebase/AuthContext";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import { auth } from "../Api/Firebase/FirebaseApi";
-import { searchItem } from "../../Redux/Action";
 
 export default function Navbar() {
-  const [datachange, setDatachange] = useState()
   let dispatch = useDispatch()
-  // let user = useContext(userContext);
+  const [datachange, setDatachange] = useState('')
+ 
   async function logout() {
     await signOut(auth);
     sessionStorage.removeItem("user");
@@ -22,38 +22,36 @@ export default function Navbar() {
     toast.warning("Logout Successfully");
     window.location.replace("http://localhost:3000/");
   }
-  function searchData() {
-    dispatch(searchItem(datachange))
+
+  const searchproduct = (search) => {
+      fetch(
+        `https://api.themoviedb.org/3/search/movie?query=${search}&api_key=95586a2cff275e69f05e2f2ddbee0211`
+      )
+        .then((res) => res.json())
+        .then((data) => dispatch(disapatchdata(data.results)));
   }
   useEffect(() => {
-    searchData()
+    searchproduct(datachange)
   }, [datachange])
-  const change = (e) => {
-    setDatachange(e.target.value)
-  }
+
   return (
     <>
-      {/* {console.log(sessionStorage.user)} */}
-
       {sessionStorage.user ? (
         <div id="header">
           <div className="headerPart1">
             <div className="nav-logo">
               <Header />
             </div>
-
-
             <div className="nav-searchBar">
               <input
                 type="text"
                 placeholder="Search for movie,web series or a person..."
-                name=""
-                id=""
+                value={datachange}
                 className="nav-searchInputTag"
-                onChange={change}
+                onChange={(e)=>setDatachange(e.target.value)}
               />
-              <button className="nav-searchBtn">Search</button>
-            </div>
+              <RxCross2 onClick={()=>setDatachange('')} size={25} style={{position:'absolute',right:'10px',backgroundColor: 'transparent', display: `${datachange? 'block':'none'}`}}/>
+            </div> 
           
           </div>
 

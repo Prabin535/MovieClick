@@ -361,11 +361,9 @@ form{
 .nav-searchBar{
     display: flex;
     align-items: center;
-    /* flex: 5%; */
-    width: 60%;
+    width: 45%;
     justify-content: center;
     position: relative;
-    /* background-color: greenyellow; */
 }
 .nav-searchInputTag{
     width: 100%;
