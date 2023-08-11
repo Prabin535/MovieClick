@@ -3,7 +3,7 @@ import Header from "./Header";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { disapatchdata } from "../../Redux/Action";
-import { RxCross2 } from 'react-icons/rx';
+import { RxCross1 } from 'react-icons/rx';
 
 // import { useContext } from "react";
 // import { userContext } from "../Api/Firebase/AuthContext";
@@ -50,7 +50,7 @@ export default function Navbar() {
                 className="nav-searchInputTag"
                 onChange={(e)=>setDatachange(e.target.value)}
               />
-              <RxCross2 onClick={()=>setDatachange('')} size={25} style={{position:'absolute',right:'10px',backgroundColor: 'transparent', display: `${datachange? 'block':'none'}`}}/>
+              <RxCross1 onClick={()=>setDatachange('')} size={25} style={{position:'absolute',right:'10px',backgroundColor: 'transparent', display: `${datachange? 'block':'none'}`}}/>
             </div> 
           
           </div>
