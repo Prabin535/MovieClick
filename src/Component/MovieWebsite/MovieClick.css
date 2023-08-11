@@ -3,7 +3,6 @@
     margin: 0px;
     padding: 0px;
     font-family: 'Secular One', sans-serif;
-    background-color: black;
     scrollbar-width: none;
 }
 *::-webkit-scrollbar{
@@ -12,8 +11,8 @@
 
 #header{
     min-height: 100px;
-    background-color: black;
-    box-shadow: 0px 1px 3px #fffc005e;
+    background-color: #171a1e;
+    box-shadow: 0px 1px 3px #3b3b395e;
     position: sticky;
     top: 0px;
     z-index: 10;
@@ -126,9 +125,9 @@ span{
 
 #section1{
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     margin: 0px auto;
-    background-color: transparent;
+    background-color: rgb(23, 26, 30);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -223,32 +222,55 @@ span{
     background-color: transparent;
 }
 .signupForm{
-    margin: 100px auto;
-    width: 500px;
-    height: 400px;
+    width: 45%;
+    padding: 50px;
     background-color: black;
     border: 2px solid aliceblue;
     border-radius: 10px;
     box-shadow: 5px -5px 5px rgb(82, 77, 77);
-    display: grid;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
+.loginContainer{
+    background-color: #171a1e;
+    width: 100%;
+    height: 100vh;
+    padding-block-start: 100px;
+    position: fixed;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.loginWrapper,.signupWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.loginWrapper div,.signupWrapper div{
+    width: 100%;
+    height: 100%;
+}
 form{
-    background-color: yellow;
-    z-index: 20;
+    /* z-index: 20; */
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
 }
 .inputTag{
-    width: 250px;
-    height: 40px;
+    width: 100%;
+    height: 60px;
     padding: 5px;
-    margin: 10px;
     border-radius: 5px;
     text-align: center;
     border: none;
+    outline: none;
     background-color: aliceblue;
-    box-shadow: -2px 5px 5px rgb(82, 77, 77);
-    font-size: 18px;
+    box-shadow:  -2px 5px 5px rgb(82, 77, 77);
+    font-size: 22px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .submitBtn{
@@ -273,19 +295,22 @@ form{
     align-items: center;
 }
 .loginForm{
-    margin: 100px auto;
-    width: 400px;
-    height: 250px;
+    width: 35%;
+    padding: 50px;
     background-color: black;
     border-radius: 10px;
     border: 2px solid aliceblue;
     box-shadow: 5px -5px 5px rgb(82, 77, 77);
-    display: grid;
+    align-self: flex-start;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 .contentLogin{
     width: 100%;
+    height: 100%;
+    padding-block-end:10vh ;
+    background-color: #171a1e;
 }
 .content{
     width: 100%;
@@ -321,13 +346,12 @@ form{
 }
 .searchSection{
     width: 100vw;
-    /* height: 620px; */
-    height: 86.3vh;
-    margin: 0px auto;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
     background: url(../../../public/Background.jpg);
-    /* background: linear-gradient(to right, rgb(40, 41, 40) 0%, rgb(62, 62, 62) 100%); */
     box-shadow: inset 0px 5px 150px rgb(91, 96, 97);
-    display: grid;
+    display: flex;
     align-items:center;
 }
 .searchContent{
@@ -480,6 +504,7 @@ ul{
     text-transform: uppercase;
     padding: 10px;
     color:white;
+    padding-block-end: 100px;
 }
 .moviesHome{
     width: 100%;

@@ -4,8 +4,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import DotLoader from "react-spinners/DotLoader";
 import { AiFillStar } from "react-icons/ai";
+import BrokenImg from '../../Images/BrokenImg.svg'
 
-const override = { margin: "150px auto" , backgroundColor:"transparent" };
+const override = { margin: "150px auto", backgroundColor: "transparent" };
 
 export default function Card(props) {
   let item = props.item;
@@ -37,19 +38,25 @@ export default function Card(props) {
           to={`/movie/${item.id}`}
         >
           <div className="movieCards">
-            <img
-              src={`https://image.tmdb.org/t/p/original${
-                item && item.poster_path
-              }`}
-              alt="MovieImage"
-              className="movieImage"
-            />
+            {item?.poster_path ? (
+              <img
+                src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                alt="MovieImage"
+                className="movieImage"
+              />
+            ) : (
+              <img
+                src={BrokenImg}
+                alt="MovieImage"
+                className="movieImage"
+              />
+            )}
             <div className="movieDetails">
               <div className="movieTitle">{item && item.original_title}</div>
               <div className="movieReleseRating">
                 <span className="movieRelese">{item && item.release_date}</span>
                 <span className={getClass(item.vote_average)}>
-                  {item && Math.floor(item.vote_average*10)}%
+                  {item && Math.floor(item.vote_average * 10)}%
                 </span>
               </div>
             </div>
