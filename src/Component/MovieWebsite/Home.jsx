@@ -17,11 +17,10 @@ const Home = () => {
   }, [])
   
 
-  
 
   return (
     <>
-      {sessionStorage.user ? (
+      {sessionStorage?.user ? (
         <>
           {loading ? (
             <div className="contentLogin">

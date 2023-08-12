@@ -1,4 +1,10 @@
 
+let loginSuccess=(data)=>{
+    return{
+        type:"LOGINSUCCESS",
+        payload:data,
+    }
+}
 let disapatchdata=(data)=>{
     return{
         type:"SEARCHEDDATA",
@@ -7,5 +13,5 @@ let disapatchdata=(data)=>{
 }
 
 
-export{disapatchdata}
+export{disapatchdata,loginSuccess}
 
