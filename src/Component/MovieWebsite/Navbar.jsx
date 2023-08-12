@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { disapatchdata } from "../../Redux/Action";
+import { disapatchdata, loginSuccess } from "../../Redux/Action";
 import { RxCross1 } from 'react-icons/rx';
 
 // import { useContext } from "react";
@@ -13,8 +13,12 @@ import { auth } from "../Api/Firebase/FirebaseApi";
 
 export default function Navbar() {
   let dispatch = useDispatch()
-  const [datachange, setDatachange] = useState('')
- 
+  const user = useSelector(state=>state.combineReducersdata.userName);
+  const userName = sessionStorage.getItem('userName');
+  const [datachange, setDatachange] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+
+
   async function logout() {
     await signOut(auth);
     sessionStorage.removeItem("user");
@@ -33,10 +37,24 @@ export default function Navbar() {
   useEffect(() => {
     searchproduct(datachange)
   }, [datachange])
+  useEffect(() => {
+    searchproduct(datachange)
+  }, [])
+  useEffect(() => {
+    if(user){
+      setLoggedIn(true)
+    }
+    else{
+      setLoggedIn(false)
+    }
+  }, [user]);
+  useEffect(()=>{
+    dispatch(loginSuccess(userName));
+  },[])
 
   return (
     <>
-      {sessionStorage.user ? (
+      {loggedIn ? (
         <div id="header">
           <div className="headerPart1">
             <div className="nav-logo">
@@ -72,8 +90,8 @@ export default function Navbar() {
             <div className="menubar2">
            
               <span>
-                <Link className="menuContentBtn">
-                  {sessionStorage.userName}
+                <Link className="menuContentBtn" style={{width:'max-content',paddingInline:'10px'}}>
+                  {user}
                 </Link>
               </span>
               <span>

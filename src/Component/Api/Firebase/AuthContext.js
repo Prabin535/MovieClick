@@ -10,10 +10,13 @@ import {
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { async } from "@firebase/util";
+import {loginSuccess} from '../../../Redux/Action';
+import { useDispatch } from "react-redux";
 
 export let userContext = createContext();
 
 function AuthContext({ children }) {
+  const dispatch=useDispatch();
   let [user, setUser] = useState();
   useEffect(() => {
     onAuthStateChanged(auth, (userInfo) => {
@@ -32,13 +35,15 @@ function AuthContext({ children }) {
     const provider=new GoogleAuthProvider();
     try {
         await signInWithPopup(auth,provider);
-        setUser(auth.currentUser);
-        sessionStorage.setItem("user",user.accessToken);
-        sessionStorage.setItem("userName",user.displayName);
-        await sessionStorage.setItem("userPic",user.photoURL);
-        console.log(user);
+        console.log(auth,"GoogleSignIn")
+        setUser(auth?.currentUser);
+        sessionStorage.setItem("user",user?.accessToken);
+        sessionStorage.setItem("userName",auth?.currentUser?.displayName);
+        await sessionStorage.setItem("userPic",user?.photoURL);
+        // console.log(user);
+        dispatch(loginSuccess(auth?.currentUser?.displayName));
     } catch (error) {
-       console.log(user); 
+       console.log(error); 
     }
   }
   return <userContext.Provider value={{user,GoogleSignIn}}>{children}</userContext.Provider>;

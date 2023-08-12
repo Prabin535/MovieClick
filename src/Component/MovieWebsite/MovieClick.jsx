@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import "./MovieClick.css";
 import Home from "./Home";
@@ -15,38 +15,43 @@ import BestofSuperheroes from "./BestofSuperheroes";
 import CreateProduct from "./Product/CreateProduct";
 import NowPlaying from "./NowPlaying";
 import UpcommingMovies from "./UpcommingMovies";
-import LatestShows from "./LatestShows"
+import LatestShows from "./LatestShows";
 
 function MovieClick() {
   return (
-      <Router>
+    <Router>
+      <AuthContext>
       <Navbar />
-      <AuthContext/>
-        <ToastContainer pauseOnHover />
         <div id="section1">
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/NowPlaying" element={<NowPlaying/>}></Route>
-          <Route path="/PopularShows" element={<WebSeries/>}></Route>
-          <Route path="/UpcommingMovies" element={<UpcommingMovies/>}></Route>
-          <Route path="/LatestShows" element={<LatestShows/>}></Route>
-          <Route path="/PopularMovies" element={<Movies />}></Route>
-          <Route path="/BestofSuperheroes" element={<BestofSuperheroes />}></Route>
+          <ToastContainer pauseOnHover />
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/NowPlaying" element={<NowPlaying />}></Route>
+            <Route path="/PopularShows" element={<WebSeries />}></Route>
+            <Route
+              path="/UpcommingMovies"
+              element={<UpcommingMovies />}
+            ></Route>
+            <Route path="/LatestShows" element={<LatestShows />}></Route>
+            <Route path="/PopularMovies" element={<Movies />}></Route>
+            <Route
+              path="/BestofSuperheroes"
+              element={<BestofSuperheroes />}
+            ></Route>
 
-          <Route path="/Movies" element={<Movies />}></Route>
+            <Route path="/Movies" element={<Movies />}></Route>
 
-          <Route path="/WebSeries" element={<WebSeries />}></Route>
+            <Route path="/WebSeries" element={<WebSeries />}></Route>
 
-          
-          <Route path="/UploadProduct" element={<CreateProduct />}></Route>
+            <Route path="/UploadProduct" element={<CreateProduct />}></Route>
 
-          <Route path="/SignUp" element={<SignUp />}></Route>
+            <Route path="/SignUp" element={<SignUp />}></Route>
 
-          <Route path="/LogIn" element={<LogIn />}></Route>
-        </Routes>
+            <Route path="/LogIn" element={<LogIn />}></Route>
+          </Routes>
         </div>
-        
-      </Router>
+      </AuthContext>
+    </Router>
   );
 }
 
