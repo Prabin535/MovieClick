@@ -2,8 +2,6 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import DotLoader from "react-spinners/DotLoader";
-import { AiFillStar } from "react-icons/ai";
 import BrokenImg from "../../Images/BrokenImg.svg";
 
 const override = { margin: "150px auto", backgroundColor: "transparent" };
@@ -28,11 +26,12 @@ export default function Card(props) {
 
   return (
     <>
+    
       {loading ? (
         <div className="movieCard">
-          {/* <DotLoader color="blue" cssOverride={override} loading size={60} /> */}
           <img src={BrokenImg} alt="MovieImage" className="movieImage" style={{width:'70%'}}/>
         </div>
+
       ) : (
         <Link
           style={{ textDecoration: "none", color: "yellow" }}

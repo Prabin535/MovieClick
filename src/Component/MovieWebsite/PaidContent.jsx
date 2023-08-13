@@ -103,7 +103,13 @@ export default function PaidContent() {
       .then((data) => setUpcomingMovies(data.results));
   }, [])
 
- 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [searchData?.length])
 
   return (
     <>
