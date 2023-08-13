@@ -1,22 +1,22 @@
 import React from "react";
-import { useState,useContext } from "react";
+import { useState, useContext } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
 import { auth } from "../Api/Firebase/FirebaseApi";
 import { useNavigate } from "react-router-dom";
-import {GoogleButton} from "react-google-button";
-import {userContext} from "../Api/Firebase/AuthContext"
+import { GoogleButton } from "react-google-button";
+import { userContext } from "../Api/Firebase/AuthContext";
 
 const LogIn = () => {
-  let context=useContext(userContext);
+  let context = useContext(userContext);
   let navigate = useNavigate();
   let [password, setPassword] = useState();
   let [email, setEmail] = useState();
-  async function loginGoogle(e){
+  async function loginGoogle(e) {
     e.preventDefault();
     try {
       await context.GoogleSignIn();
-      
+
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -73,9 +73,9 @@ const LogIn = () => {
             <div className="button">
               <button className="submitBtn">Submit</button>
             </div>
-            <div>
-            <GoogleButton onClick={(e)=>loginGoogle(e)}/>
-          </div>
+            <div style={{display:'flex',justifyContent:'center'}}>
+              <GoogleButton onClick={(e) => loginGoogle(e)} />
+            </div>
           </div>
         </form>
       </div>
