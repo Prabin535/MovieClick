@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useContext } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
-import { auth } from "../Api/Firebase/FirebaseApi";
+import { auth } from "../Api/FirebaseApi";
 import { useNavigate } from "react-router-dom";
 import { GoogleButton } from "react-google-button";
 import { userContext } from "../Api/Firebase/AuthContext";

@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { auth } from "./FirebaseApi";
+import { auth } from "../FirebaseApi";
 import {
   onAuthStateChanged,
   GoogleAuthProvider,

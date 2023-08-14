@@ -6,7 +6,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { toast } from "react-toastify";
-import { auth } from "../Api/Firebase/FirebaseApi";
+import { auth } from "../Api/FirebaseApi";
 import { useNavigate } from "react-router-dom";
 const SignUp = () => {
   let navigate = useNavigate();
