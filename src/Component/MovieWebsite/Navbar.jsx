@@ -9,7 +9,7 @@ import { RxCross1 } from 'react-icons/rx';
 // import { userContext } from "../Api/Firebase/AuthContext";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
-import { auth } from "../Api/Firebase/FirebaseApi";
+import { auth } from "../Api/FirebaseApi";
 
 export default function Navbar() {
   let dispatch = useDispatch()
