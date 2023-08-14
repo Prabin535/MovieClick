@@ -24,7 +24,7 @@ export default function Navbar() {
     sessionStorage.removeItem("user");
     sessionStorage.removeItem("userName");
     toast.warning("Logout Successfully");
-    window.location.replace("http://localhost:3000/");
+    window.location.replace("/");
   }
 
   const searchproduct = (search) => {
@@ -68,7 +68,7 @@ export default function Navbar() {
                 className="nav-searchInputTag"
                 onChange={(e)=>setDatachange(e.target.value)}
               />
-              <RxCross1 onClick={()=>setDatachange('')} size={25} style={{position:'absolute',right:'10px',backgroundColor: 'transparent', display: `${datachange? 'block':'none'}`}}/>
+              <RxCross1 onClick={()=>setDatachange('')} size={20} style={{position:'absolute',right:'10px',backgroundColor: 'transparent', display: `${datachange? 'block':'none'}`,cursor:'pointer'}}/>
             </div> 
           
           </div>
